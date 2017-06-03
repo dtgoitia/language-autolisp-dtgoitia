@@ -1,7 +1,83 @@
 # AutoLISP snippets by @dtgoitia
-
-# --------------------- AutoLISP
+# Extended
 '.source.autolisp':
-  'this is a test':
-    prefix: 'dtgoitia'
-    body:   'this snippet is working!'
+  # Custom snippets
+  'defun':
+    prefix: 'defun'
+    body:   '
+    (defun c:1 () (c:${1:name}) )\n(defun c:${1:MIRROR-name} ( / old_error old_sysvars )\n\n\t; SAVE SETTINGS\n\t; (save_environment (list "osmode" "angdir" "angbase"))\n\t\n\t${2:--- start here your program ---}\n\t\n\t; RESTORE SETTINGS\n\t; (restore_environment)\n\n\t(princ)\n\n\t; v0.0 - _DATE_ - First issue\n\t; Author: David Torralba\n\t; Last revision: _DATE_\n);END defun'
+  'defun c\:1()':
+    prefix: 'defun1'
+    body:   '(defun c:1 () $0 )'
+  'defun c\:xx()':
+    prefix: 'dex'
+    body:   '''
+      (defun c:xx ()
+      \t$0
+
+      \t; v0.0 - ${1:_DATE_} - First issue
+      \t; Author: David Torralba
+      \t; Last revision: ${1:_DATE_}
+      )
+    '''
+  'issue':
+    prefix: 'issue'
+    body:   '''
+      \t; v0.0 - ${1:_DATE_} - First issue
+      \t; Author: David Torralba
+      \t; Last revision: ${1:_DATE_}
+    '''
+  'test princ':
+    prefix: 'princt'
+    body:   '(princ "\\\\n${1:variable} = ")(princ ${1:variable})$2'
+  'test function princ':
+    prefix: 'princf'
+    body:   '(princ "\\\\n")(princ \'${1:function})(princ "\\\\n")(princ ${1:function})$2'
+  'OK':
+    prefix: 'ok'
+    body:   '(princ "\\\\nOK")'
+  'foreach ename':
+    prefix: 'foreach ename'
+    body:   '''
+    (foreach a ${1:list}
+      (if (= 'ename (type (cadr a)))
+        ${2:single_function}
+      );END if
+    );END foreach
+    '''
+  'while grread':
+    prefix: 'grread'
+    body:   '''
+      (while (= 5 (car (setq gr (grread 't 13 0))))
+        ${1:functions}
+      );END while
+    '''
+
+  # dtgoitia library
+  '(DT:Arg function argumentList)':
+    prefix: 'argMan'
+    body:   '(DT:Arg \'${1:functionName} \'(${2:argumentList}))'
+  'argument':
+    prefix: 'arg'
+    body:   '(${1:argumentSymbol} \'${2:argumentType})$3'
+  '(DT:PrintVar var)':
+    prefix: 'print'
+    body:   '(DT:PrintVar \'${1:var})'
+  '(DT:Error sym str)':
+    prefix:  'error'
+    body:    '(DT:Error \'${1:functionName} ${2:errorMessage})'
+    description: 'Print message on console correctly formated'
+
+  # Lee Mac library
+  'LM effectivename':
+    prefix: 'LM effective'
+    body:   '(LM:effectivename ${1:object})'
+  'LM VL Get Attribute Value':
+    prefix: 'lmGetAtt'
+    body:   '(LM:vl-getattributevalue ${1:object} ${2:attributeTag})'
+  'LM VL Get All Attribute Value':
+    prefix: 'lmGetAtts'
+    body:   '(LM:vl-getattributes ${1:object})'
+  'LM VL Set Attribute Value':
+    prefix: 'lmSetAtt'
+    body:   '(LM:vl-setattributevalue ${1:object} ${2:attributeTag} ${3:attributeValue})'
