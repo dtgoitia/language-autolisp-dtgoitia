@@ -1,6 +1,6 @@
 {
   "name": "language-autolisp-dtgoitia",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "AutoLISP language snippets extended.",
   "engines": {
     "atom": "*"
