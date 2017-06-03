@@ -1,0 +1,7 @@
+# AutoLISP snippets by @dtgoitia
+
+# --------------------- AutoLISP
+'.source.autolisp':
+  'this is a test':
+    prefix: 'dtgoitia'
+    body:   'this snippet is working!'

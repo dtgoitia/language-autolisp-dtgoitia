@@ -5,12 +5,7 @@
   "engines": {
     "atom": "*"
   },
-  "dependencies": {
-    "language-autolisp": "*"
-  },
-  "package-deps": [
-    "language-autolisp"
-  ],
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dtgoitia/language-autolisp-dtgoitia.git"
