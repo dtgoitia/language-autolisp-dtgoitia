@@ -1,0 +1,16 @@
+{
+  "name": "language-autolisp-dtgoitia",
+  "version": "0.0.0",
+  "description": "AutoLISP language snippets extended.",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+    "language-autolisp": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtgoitia/language-autolisp-dtgoitia.git"
+  },
+  "license": "MIT"
+}
