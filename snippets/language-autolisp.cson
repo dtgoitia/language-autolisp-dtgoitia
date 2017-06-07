@@ -6,6 +6,12 @@
     prefix: 'defun'
     body:   '
     (defun c:1 () (c:${1:name}) )\n(defun c:${1:MIRROR-name} ( / old_error old_sysvars )\n\n\t; SAVE SETTINGS\n\t; (save_environment (list "osmode" "angdir" "angbase"))\n\t\n\t${2:--- start here your program ---}\n\t\n\t; RESTORE SETTINGS\n\t; (restore_environment)\n\n\t(princ)\n\n\t; v0.0 - _DATE_ - First issue\n\t; Author: David Torralba\n\t; Last revision: _DATE_\n);END defun'
+  'error handling and setting management functions':
+    prefix: 'env'
+    body:   '''
+    (save_environment (list "osmode" "angdir" "angbase"))
+    (restore_environment)
+    '''
   'defun c\:1()':
     prefix: 'defun1'
     body:   '(defun c:1 () $0 )'
