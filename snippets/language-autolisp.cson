@@ -87,3 +87,57 @@
   'LM VL Set Attribute Value':
     prefix: 'lmSetAtt'
     body:   '(LM:vl-setattributevalue ${1:object} ${2:attributeTag} ${3:attributeValue})'
+
+  # entmakex
+  'entmakex INSERT':
+    prefix:  'entmakexInsert'
+    body:    '''
+    (entmakex
+      (list
+        (cons 0 "INSERT")
+        (cons 2 ${1:blockName})
+        (cons 10 ${2:insertionPoint})
+      );END list
+    );END entmakex
+    '''
+    description: 'INSERT entmakex minimum structure'
+  'entmakex CIRCLE':
+    prefix:  'entmakexCircle'
+    body:    '''
+    (entmakex
+      (list
+        (cons 0 "CIRCLE")
+        (cons 10 ${1:centrePoint})
+        (cons 40 ${2:radius})
+      );END list
+    );END entmakex
+    '''
+    description: 'CIRCLE entmakex minimum structure'
+  'entmakex LINE':
+    prefix:  'entmakexLine'
+    body:    '''
+
+    (entmakex
+      (list
+        (cons 0 "LINE")
+        (cons 10 ${1:startPoint})
+        (cons 11 ${2:endPoint})
+      );END list
+    );END entmakex
+    '''
+    description: 'LINE entmakex minimum structure'
+  'entmakex TEXT':
+    prefix:  'entmakexText'
+    body:    '''
+    (entmake
+      (list
+        (cons 0 "TEXT")
+        (cons 1 ${1:content})
+        (cons 10 '(0.0 0.0 0.0))
+        (cons 11 ${2:insertionPoint})
+        (cons 40 ${3:tesxtSize})
+        (cons 72 1)
+      );END list
+    );END entmake
+    '''
+    description: 'TEXT entmakex minimum structure'
