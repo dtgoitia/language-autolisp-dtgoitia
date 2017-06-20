@@ -58,6 +58,22 @@
         ${1:functions}
       );END while
     '''
+  # Conversion Functions
+  '(atof str)':
+    prefix:  'stringToReal'
+    body:    '(atof ${1:str})'
+    description:        'Converts a string into a real number'
+    descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2015/ENU/AutoCAD-AutoLISP/files/GUID-8618A388-E4CF-40E1-813B-057367DD1840-htm.html'
+  '(atoi str)':
+    prefix:  'stringToInteger'
+    body:    '(atoi ${1:str})'
+    description:        'Converts a string into a real number'
+    descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2015/ENU/AutoCAD-AutoLISP/files/GUID-20EF237C-7079-4E29-860C-B8531D6C7F36-htm.html'
+  '(itoa int)':
+    prefix:  'integerToString'
+    body:    '(itoa ${1:integer})'
+    description:        'Returns the conversion of an integer into a string'
+    descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2015/ENU/AutoCAD-AutoLISP/files/GUID-7E247CA3-95D3-4497-BDE2-6EB0E727DD4D-htm.html'
 
   # dtgoitia library
   '(DT:Arg function argumentList)':
