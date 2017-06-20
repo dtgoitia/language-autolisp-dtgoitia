@@ -89,6 +89,14 @@
     prefix:  'error'
     body:    '(DT:Error \'${1:functionName} ${2:errorMessage})'
     description: 'Print message on console correctly formated'
+  '(DT:SetText ename str)':
+    prefix:  'setText'
+    body:    '(DT:SetText ${1:ename} ${2:str})'
+    description: 'Updates entity text content, if possible'
+  '(DT:GetText ename str)':
+    prefix:  'getText'
+    body:    '(DT:GetText ${1:ename})'
+    description: 'Returns entity text content, if any'
 
   # Lee Mac library
   'LM effectivename':
