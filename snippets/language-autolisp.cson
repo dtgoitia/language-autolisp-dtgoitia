@@ -153,7 +153,7 @@
   'entmakex TEXT':
     prefix:  'entmakexText'
     body:    '''
-    (entmake
+    (entmakex
       (list
         (cons 0 "TEXT")
         (cons 1 ${1:content})
@@ -165,3 +165,17 @@
     );END entmake
     '''
     description: 'TEXT entmakex minimum structure'
+  'entmakex MTEXT':
+    prefix:  'entmakexMtext'
+    body:    '''
+    (entmakex
+      (list
+        (cons 0 "MTEXT")
+        (cons 100 "AcDbEntity")
+        (cons 100 "AcDbMText")
+        (cons 1 ${1:content})
+        (cons 10 ${2:insertionPoint})
+      );END list
+    );END entmake
+    '''
+    description:        'description'
