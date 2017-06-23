@@ -97,6 +97,14 @@
     prefix:  'getText'
     body:    '(DT:GetText ${1:ename})'
     description: 'Returns entity text content, if any'
+  '(DT:AddLayer layerName layerColor layerLineType)':
+    prefix:  'dtaddLayer'
+    body:    '(DT:AddLayer ${1:layerName} ${2:layerColor} ${3:layerLineType})'
+    description:        'Create a new layer and set name, color and linetype.'
+  '(DT:ZoomToEntity ename)':
+    prefix:  'dtZoomToEntity',
+    body:    '(DT:ZoomToEntity ${1:ename})',
+    description: 'Zoom to entity'
 
   # Lee Mac library
   'LM effectivename':
@@ -159,10 +167,10 @@
         (cons 1 ${1:content})
         (cons 10 '(0.0 0.0 0.0))
         (cons 11 ${2:insertionPoint})
-        (cons 40 ${3:tesxtSize})
+        (cons 40 ${3:textSize})
         (cons 72 1)
       );END list
-    );END entmake
+    );END entmakex
     '''
     description: 'TEXT entmakex minimum structure'
   'entmakex MTEXT':
@@ -176,6 +184,6 @@
         (cons 1 ${1:content})
         (cons 10 ${2:insertionPoint})
       );END list
-    );END entmake
+    );END entmakex
     '''
     description:        'description'
