@@ -241,6 +241,26 @@
     );END entmakex
     '''
     description: 'LINE entmakex minimum structure'
+  'entmakex LWPOLYLINE':
+    prefix:  'entmakexLwPolyline'
+    body:    '''
+    (entmakex
+      (append
+        (list
+          (cons   0 "LWPOLYLINE")
+          (cons 100 "AcDbEntity")
+          (cons 100 "AcDbPolyline")
+          (cons  70 0) ; Open(0)/Closed(1)
+          (cons  90 (length ${1:pointList})) ; Number of vertices
+        )
+        (mapcar
+          '(lambda (pt) (cons 10 pt) )
+          ${1:pointList}
+        );END mapcar
+      );END append
+    )
+    '''
+    description: 'LWPOLYLINE entmakex minimum structure'
   'entmakex TEXT':
     prefix:  'entmakexText'
     body:    '''
