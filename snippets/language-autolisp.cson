@@ -130,19 +130,34 @@
     body:    '(DT:GetCurrentSpace)'
     description: 'Return current space: model space (0), paper space (1), locked viewport (2), unlocked viewport (3)'
 
-  # Lee Mac library
+# Lee Mac library
   'LM effectivename':
     prefix: 'LM effective'
     body:   '(LM:effectivename ${1:object})'
-  'LM VL Get Attribute Value':
-    prefix: 'lmGetAtt'
-    body:   '(LM:vl-getattributevalue ${1:object} ${2:attributeTag})'
-  'LM VL Get All Attribute Value':
-    prefix: 'lmGetAtts'
-    body:   '(LM:vl-getattributes ${1:object})'
-  'LM VL Set Attribute Value':
-    prefix: 'lmSetAtt'
-    body:   '(LM:vl-setattributevalue ${1:object} ${2:attributeTag} ${3:attributeValue})'
+
+  # Attribute Functions
+  '(LM:vl-getattributevalue blk tag)':
+    prefix:  'LM:vl-getattributevalue'
+    body:    '(LM:vl-getattributevalue ${1:blockObject} ${2:tag})'
+    description: 'Returns the value held by the specified tag within the supplied block, if present.'
+    descriptionMoreURL: 'http://www.lee-mac.com/attributefunctions.html'
+  '(LM:vl-setattributevalue blk tag val)':
+    prefix:  'LM:vl-setattributevalue'
+    body:    '(LM:vl-setattributevalue ${1:blockObject} ${2:tag} ${3:value})'
+    description: 'Sets the value of the first attribute with the given tag found within the block, if present.'
+    descriptionMoreURL: 'http://www.lee-mac.com/attributefunctions.html'
+  '(LM:vl-setattributevalues blk lst)':
+    prefix:  'LM:vl-setattributevalues'
+    body:    '(LM:vl-setattributevalues ${1:blockObject} ${2:lst})'
+    description: 'Sets attributes with tags found in the association list to their associated values.'
+    descriptionMoreURL: 'http://www.lee-mac.com/attributefunctions.html'
+  '(LM:vl-getattributes blk)':
+    prefix:  'LM:vl-getattributes'
+    body:    '(LM:vl-getattributes ${1:blockObject})'
+    description: 'Returns an association list of attributes present in the supplied block.'
+    descriptionMoreURL: 'http://www.lee-mac.com/attributefunctions.html'
+
+  # Dynamic Block Functions
   '(LM:GetDynPropValue blk prp)':
     prefix: 'LM:GetDynPropValue'
     body: '(LM:GetDynPropValue ${1:blockObject} ${2:property})'
