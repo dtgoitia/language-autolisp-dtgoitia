@@ -93,7 +93,7 @@
     prefix:  'setText'
     body:    '(DT:SetText ${1:ename} ${2:str})'
     description: 'Updates entity text content, if possible'
-  '(DT:GetText ename str)':
+  '(DT:GetText ename)':
     prefix:  'getText'
     body:    '(DT:GetText ${1:ename})'
     description: 'Returns entity text content, if any'
@@ -105,6 +105,30 @@
     prefix:  'dtZoomToEntity',
     body:    '(DT:ZoomToEntity ${1:ename})',
     description: 'Zoom to entity'
+  '(DT:SetGroup list)':
+    prefix:  'dtSetGroup',
+    body:    '(DT:SetGroup ${1:enameList})',
+    description: 'Create a group with the passed entities'
+  '(DT:ListToTable list)':
+    prefix:  'dtListToTable',
+    body:    '(DT:ListToTable ${1:list})',
+    description: 'Return the provided list as a table'
+  '(DT:StringifyTableList list)':
+    prefix:  'dtStringifyTableList',
+    body:    '(DT:StringifyTableList ${1:list})',
+    description: 'Convert all elements withing the list in strings'
+  '(DT:Delete ename)':
+    prefix:  'dtDelete'
+    body:    '(DT:Delete ${1:ename})'
+    description: 'Delete the passed entity and confirm if it\'s been deleted. Return T if succesfully deleted, otherwise nil.'
+  '(DT:EntityType ename)':
+    prefix:  'dtEntityType'
+    body:    '(DT:EntityType ${1:ename})'
+    description: 'Return a string with ename entity type (INSERT, CIRCLE, LINE...).'
+  '(DT:GetCurrentSpace)':
+    prefix:  'dtGetCurrentSpace'
+    body:    '(DT:GetCurrentSpace)'
+    description: 'Return current space: model space (0), paper space (1), locked viewport (2), unlocked viewport (3)'
 
   # Lee Mac library
   'LM effectivename':
@@ -119,6 +143,48 @@
   'LM VL Set Attribute Value':
     prefix: 'lmSetAtt'
     body:   '(LM:vl-setattributevalue ${1:object} ${2:attributeTag} ${3:attributeValue})'
+  '(LM:GetDynPropValue blk prp)':
+    prefix: 'LM:GetDynPropValue'
+    body: '(LM:GetDynPropValue ${1:blockObject} ${2:property})'
+    description: 'Returns the value of a Dynamic Block property (if present)'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:SetDynPropValue blk prp val)':
+    prefix: 'LM:SetDynPropValue'
+    body: '(LM:SetDynPropValue ${1:blockObject} ${2:property} ${3:value})'
+    description: 'Modifies the value of a Dynamic Block property (if present)'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:GetDynProps blk)':
+    prefix: 'LM:GetDynProps'
+    body: '(LM:GetDynProps ${1:blockObject})'
+    description: 'Returns an association list of Dynamic Block properties & values.'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:SetDynProps blk lst)':
+    prefix: 'LM:SetDynProps'
+    body: '(LM:SetDynProps ${1:blockObject} ${2:lst})'
+    description: 'Modifies values of Dynamic Block properties using a supplied association list.'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:GetDynPropAllowedValues blk prp)':
+    prefix:  'LM:GetDynPropAllowedValues'
+    body:    '(LM:GetDynPropAllowedValues ${1:blockObject} ${2:property})'
+    description: 'Returns the allowed values for a specific Dynamic Block property.'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:ToggleFlipState blk)':
+    prefix:  'LM:ToggleFlipState'
+    body:    '(LM:ToggleFlipState ${1:blockObject})'
+    description:        'Toggles the Flip parameter if present in a supplied Dynamic Block.'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:GetVisibilityState blk)':
+    prefix: 'LM:GetVisibilityState'
+    body: '(LM:GetVisibilityState ${1:blockObject})'
+    description: 'Returns the value of the Visibility Parameter of a Dynamic Block (if present)'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+  '(LM:SetVisibilityState blk val)':
+    prefix: 'LM:SetVisibilityState'
+    body: '(LM:SetVisibilityState ${1:blockObject} ${2:value})'
+    description: 'Sets the Visibility Parameter of a Dynamic Block (if present) to a specific value (if allowed)'
+    descriptionMoreURL: 'http://www.lee-mac.com/dynamicblockfunctions.html'
+
+
 
   # entmakex
   'entmakex INSERT':
