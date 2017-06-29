@@ -86,15 +86,15 @@
     prefix: 'print'
     body:   '(DT:PrintVar \'${1:var})'
   '(DT:Error sym str)':
-    prefix:  'error'
+    prefix:  'DT:Error'
     body:    '(DT:Error \'${1:functionName} ${2:errorMessage})'
     description: 'Print message on console correctly formated'
   '(DT:SetText ename str)':
-    prefix:  'setText'
+    prefix:  'DT:SetText'
     body:    '(DT:SetText ${1:ename} ${2:str})'
     description: 'Updates entity text content, if possible'
   '(DT:GetText ename)':
-    prefix:  'getText'
+    prefix:  'DT:GetText'
     body:    '(DT:GetText ${1:ename})'
     description: 'Returns entity text content, if any'
   '(DT:AddLayer layerName layerColor layerLineType)':
@@ -106,34 +106,36 @@
     body:    '(DT:ZoomToEntity ${1:ename})',
     description: 'Zoom to entity'
   '(DT:SetGroup list)':
-    prefix:  'dtSetGroup',
+    prefix:  'DT:SetGroup',
     body:    '(DT:SetGroup ${1:enameList})',
     description: 'Create a group with the passed entities'
   '(DT:ListToTable list)':
-    prefix:  'dtListToTable',
+    prefix:  'DT:ListToTable',
     body:    '(DT:ListToTable ${1:list})',
     description: 'Return the provided list as a table'
   '(DT:StringifyTableList list)':
-    prefix:  'dtStringifyTableList',
+    prefix:  'DT:StringifyTableList',
     body:    '(DT:StringifyTableList ${1:list})',
     description: 'Convert all elements withing the list in strings'
   '(DT:Delete ename)':
-    prefix:  'dtDelete'
+    prefix:  'DT:Delete'
     body:    '(DT:Delete ${1:ename})'
     description: 'Delete the passed entity and confirm if it\'s been deleted. Return T if succesfully deleted, otherwise nil.'
   '(DT:EntityType ename)':
-    prefix:  'dtEntityType'
+    prefix:  'DT:EntityType'
     body:    '(DT:EntityType ${1:ename})'
     description: 'Return a string with ename entity type (INSERT, CIRCLE, LINE...).'
   '(DT:GetCurrentSpace)':
-    prefix:  'dtGetCurrentSpace'
+    prefix:  'DT:GetCurrentSpace'
     body:    '(DT:GetCurrentSpace)'
     description: 'Return current space: model space (0), paper space (1), locked viewport (2), unlocked viewport (3)'
 
 # Lee Mac library
-  'LM effectivename':
-    prefix: 'LM effective'
-    body:   '(LM:effectivename ${1:object})'
+  '(LM:EffectiveName obj)':
+    prefix: 'LM:EffectiveName '
+    body:   '(LM:EffectiveName ${1:blockObject})'
+    description: 'Return passed object block name, if any.'
+    descriptionMoreURL: 'http://www.lee-mac.com/effectivename.html'
 
   # Attribute Functions
   '(LM:vl-getattributevalue blk tag)':
