@@ -2,6 +2,9 @@
 # Extended
 '.source.autolisp':
   # Custom snippets
+  'active document object':
+    prefix: 'doc'
+    body: '(vla-get-ActiveDocument (vlax-get-acad-object))'
   'defun':
     prefix: 'defun'
     body:   '
