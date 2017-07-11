@@ -140,6 +140,13 @@
     description: 'Return passed object block name, if any.'
     descriptionMoreURL: 'http://www.lee-mac.com/effectivename.html'
 
+  # List manipulation
+  '(LM:SubstNth a n l)':
+    prefix:  'LM:SubstNth'
+    body:    '(LM:SubstNth ${1:item} ${2:position} ${3:list})'
+    description:        'Return "l" list after substituting "n"-th item for "a" item'
+    descriptionMoreURL: 'http://www.lee-mac.com/substn.html'
+
   # Attribute Functions
   '(LM:vl-getattributevalue blk tag)':
     prefix:  'LM:vl-getattributevalue'
