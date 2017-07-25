@@ -132,6 +132,14 @@
     prefix:  'DT:GetCurrentSpace'
     body:    '(DT:GetCurrentSpace)'
     description: 'Return current space: model space (0), paper space (1), locked viewport (2), unlocked viewport (3)'
+  '(DT:AutoLoadFileFromCivil filename)':
+    prefix:  'DT:AutoLoadFileFromCivil'
+    body:    '(DT:AutoLoadFileFromCivil "${1:filename}.lsp")'
+    description:        'Load file from %username%/projects/civil-autolisp/'
+  '(DT:AutoLoadFileFromCivilTemp filename)':
+    prefix:  'DT:AutoLoadFileFromCivilTemp'
+    body:    '(DT:AutoLoadFileFromCivilTemp "${1:filename}.lsp")'
+    description:        'Load file from %username%/projects/civil-autolisp-TEMP/'
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
