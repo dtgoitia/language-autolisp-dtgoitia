@@ -32,9 +32,9 @@
   'issue':
     prefix: 'issue'
     body:   '''
-      \t; v0.0 - ${1:_DATE_} - First issue
-      \t; Author: David Torralba
-      \t; Last revision: ${1:_DATE_}
+      ; v0.0 - ${1:_DATE_} - First issue
+      ; Author: David Torralba
+      ; Last revision: ${1:_DATE_}
     '''
   'test princ':
     prefix: 'princt'
@@ -139,7 +139,19 @@
   '(DT:AutoLoadFileFromCivilTemp filename)':
     prefix:  'DT:AutoLoadFileFromCivilTemp'
     body:    '(DT:AutoLoadFileFromCivilTemp "${1:filename}.lsp")'
-    description:        'Load file from %username%/projects/civil-autolisp-TEMP/'
+    description: 'Load file from %username%/projects/civil-autolisp-TEMP/'
+  '(DT:OffSet ent_name distance targetPoint)':
+    prefix:  'DT:OffSet'
+    body:    '(DT:OffSet ${1:ent_name} ${2:distance} ${3:targetPoint})'
+    description: 'Offset function'
+  '(DT:MidPoint p1 p2)':
+    prefix:  'DT:MidPoint'
+    body:    '(DT:MidPoint ${1:p1} ${2:p2})'
+    description: 'Return the middle point between points p1 and p2.'
+  '(DT:ReadableTextAngle angle)':
+    prefix:  'DT:ReadableTextAngle'
+    body:    '(DT:ReadableTextAngle ${1:angle})'
+    description: 'Return the readable equivalent angle of the provided angle.'
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
