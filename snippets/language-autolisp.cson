@@ -61,6 +61,30 @@
         ${1:functions}
       );END while
     '''
+  'ename -> vla':
+    prefix: 'ename2vla'
+    body:   '(vlax-ename->vla-object ${1:ename})'
+  '(vla-GetBoundingBox object minPoint maxPoint)':
+    prefix:  'vla-GetBoundingBox'
+    body:    '(vla-GetBoundingBox ${1:object} \'${2:minPoint} \'${3:maxPoint})'
+    description: 'Asigns object\'s bounding box minium and maximum coordinates to minPoint and maxPoint respectively'
+  'ssget AND':
+    prefix: 'ssAnd'
+    body:   '(-4 . \"<AND\")$0(-4 . \"AND>\")'
+  'ssget OR':
+    prefix: 'ssOr'
+    body:   '(-4 . \"<OR\")$0(-4 . \"OR>\")'
+  'ssget NOT':
+    prefix: 'ssNot'
+    body:   '(-4 . \"<NOT\")$0(-4 . \"NOT>\")'
+  'ssget XOR':
+    prefix: 'ssXor'
+    body:   '(-4 . \"<XOR\")$0(-4 . \"XOR>\")'
+  'subcond':
+    prefix: 'scond'
+    body:   '(${1:condition}\n\t${2:functions}\n);END subcond'
+
+
   # Conversion Functions
   '(atof str)':
     prefix:  'stringToReal'
@@ -152,6 +176,36 @@
     prefix:  'DT:ReadableTextAngle'
     body:    '(DT:ReadableTextAngle ${1:angle})'
     description: 'Return the readable equivalent angle of the provided angle.'
+  'DT trigger boilerplate':
+    prefix:  'dt trigger'
+    body:    '''
+    (defun c:xx ()
+      ; Trigger
+      (DT:AutoLoadFileFromCivilTemp "${1:currentFile}.lsp")
+      (c:${2:entryFunction})
+
+      ; v0.0 - ${3:_DATE_} - First issue
+      ; Author: David Torralba
+      ; Last revision: ${3:_DATE_}
+    )$4
+    '''
+    description: 'Boilerplate code to set a trigger to autoload the file from AutoCAD. Only for development purposes.'
+  '(DT:GetBoundingBox ename)':
+    prefix:  'DT:GetBoundingBox'
+    body:    '(DT:GetBoundingBox ${1:ename})'
+    description: 'Return a list with the coordinates of bounding box of entity passed.'
+  '(DT:RadToDeg angle)':
+    prefix:  'DT:RadToDeg'
+    body:    '(DT:RadToDeg ${1:angle})'
+    description: 'Return angle in sexagesimal degrees'
+  '(DT:DegToRad angle)':
+    prefix:  'DT:DegToRad'
+    body:    '(DT:DegToRad ${1:angle})'
+    description: 'Return angle in radians'
+  '(DT:SortAlphanumeric list)':
+    prefix:  'DT:SortAlphanumeric'
+    body:    '(DT:SortAlphanumeric ${1:listToSort})'
+    description: 'Return a listToSort sorted alphanumerically'
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
