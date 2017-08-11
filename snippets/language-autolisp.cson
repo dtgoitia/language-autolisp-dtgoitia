@@ -5,10 +5,30 @@
   'active document object':
     prefix: 'doc'
     body: '(vla-get-ActiveDocument (vlax-get-acad-object))'
+  # 'defun':
+  #   prefix: 'defun'
+  #   body:   '
+  #   (defun c:1 () (c:${1:name}) )\n(defun c:${1:MIRROR-name} ( / old_error old_sysvars )\n\n\t; SAVE SETTINGS\n\t; (save_environment (list "osmode" "angdir" "angbase"))\n\t\n\t${2:--- start here your program ---}\n\t\n\t; RESTORE SETTINGS\n\t; (restore_environment)\n\n\t(princ)\n\n\t; v0.0 - _DATE_ - First issue\n\t; Author: David Torralba\n\t; Last revision: _DATE_\n);END defun'
   'defun':
     prefix: 'defun'
-    body:   '
-    (defun c:1 () (c:${1:name}) )\n(defun c:${1:MIRROR-name} ( / old_error old_sysvars )\n\n\t; SAVE SETTINGS\n\t; (save_environment (list "osmode" "angdir" "angbase"))\n\t\n\t${2:--- start here your program ---}\n\t\n\t; RESTORE SETTINGS\n\t; (restore_environment)\n\n\t(princ)\n\n\t; v0.0 - _DATE_ - First issue\n\t; Author: David Torralba\n\t; Last revision: _DATE_\n);END defun'
+    body:   '''
+    (defun c:${2:name} ()
+      ; Command version of DT:${2:name}
+      (DT:${2:name})
+
+      ; v0.0 - ${1:_DATE_} - First issue
+      ; Author: David Torralba
+      ; Last revision: ${1:_DATE_}
+    )
+    (defun DT:${2:name} ()
+      ; ${3:DT:${2:name} function description}
+      $0
+
+      ; v0.0 - ${1:_DATE_} - First issue
+      ; Author: David Torralba
+      ; Last revision: ${1:_DATE_}
+    )
+    '''
   'error handling and setting management functions':
     prefix: 'env'
     body:   '''
@@ -21,12 +41,12 @@
   'defun c\:xx()':
     prefix: 'dex'
     body:   '''
-      (defun c:xx ()
-      \t$0
+      (defun ${3:c:${4:xx}} ()
+      \t$0${2:
 
-      \t; v0.0 - ${1:_DATE_} - First issue
-      \t; Author: David Torralba
-      \t; Last revision: ${1:_DATE_}
+        ; v0.0 - ${1:_DATE_} - First issue
+        ; Author: David Torralba
+        ; Last revision: ${1:_DATE_}}
       )
     '''
   'issue':
@@ -206,6 +226,10 @@
     prefix:  'DT:SortAlphanumeric'
     body:    '(DT:SortAlphanumeric ${1:listToSort})'
     description: 'Return a listToSort sorted alphanumerically'
+  '(DT:clic_or_type_level)':
+    prefix:  'DT:clic_or_type_level'
+    body:    '(DT:clic_or_type_level)'
+    description:        'Asks user to input a number by typing it or clicking on a text which contains number'
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
@@ -373,4 +397,15 @@
       );END list
     );END entmakex
     '''
-    description:        'description'
+    description: 'MTEXT entmakex minimum structure'
+  'entmakex POINT':
+    prefix:  'entmakexPoint'
+    body:    '''
+    (entmakex
+      (list
+        (cons 0 "POINT")
+        (cons 10 ${2:point})
+      );END list
+    );END entmakex
+    '''
+    description: 'POINT entmakex minimum structure'
