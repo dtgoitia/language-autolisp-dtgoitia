@@ -74,6 +74,21 @@
       );END if
     );END foreach
     '''
+  'foreach (ssnamex ss)':
+    prefix:  'ssforeach'
+    body:    '''
+    (if (setq ${1:ss} (ssget))
+      (foreach a (ssnamex ${1:ss})
+        (if (= 'ename (type (cadr a)))
+          ${2:(progn
+            $3
+          );END progn}
+        );END if
+      );END foreach
+    );END if
+    '''
+    description:        'description'
+    descriptionMoreURL: 'documentationURL'
   'while grread':
     prefix: 'grread'
     body:   '''
