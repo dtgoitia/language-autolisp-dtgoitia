@@ -131,6 +131,16 @@
     body:    '(atoi ${1:str})'
     description:        'Converts a string into a real number'
     descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2015/ENU/AutoCAD-AutoLISP/files/GUID-20EF237C-7079-4E29-860C-B8531D6C7F36-htm.html'
+  '(fix number)':
+    prefix:  'realtoInteger'
+    body:    '(fix ${1:number})'
+    description:        'Returns the conversion of a real number into the nearest smaller integer'
+    descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-AutoLISP/files/GUID-93B5F13B-348E-49E0-A116-0861684506D5-htm.html'
+  '(float number)':
+    prefix:  'integerToReal'
+    body:    '(float ${1:number})'
+    description:        'Returns the conversion of a number into a real number'
+    descriptionMoreURL: 'https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2016/ENU/AutoCAD-AutoLISP/files/GUID-93808F66-808C-49F7-9303-F12C55296080-htm.html'
   '(itoa int)':
     prefix:  'integerToString'
     body:    '(itoa ${1:integer})'
@@ -245,6 +255,11 @@
     prefix:  'DT:clic_or_type_level'
     body:    '(DT:clic_or_type_level)'
     description:        'Asks user to input a number by typing it or clicking on a text which contains number'
+  '(DT:GetLwpolyPoints ename)':
+    prefix:  'DT:GetLwpolyPoints'
+    body:    '(DT:GetLwpolyPoints ${1:ename})'
+    description:        'Return a list with the coordinates of every verted of passed entity name (ename)'
+
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
