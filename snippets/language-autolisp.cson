@@ -118,7 +118,10 @@
   'subcond':
     prefix: 'scond'
     body:   '(${1:condition}\n\t${2:functions}\n);END subcond'
-
+  'clean command line':
+    prefix:  'CleanCommandLine'
+    body:    '(CleanCommandLine)'
+    description:        'Print many "\n" to clean command line.'
 
   # Conversion Functions
   '(atof str)':
@@ -226,6 +229,8 @@
     body:    '''
     (defun c:xx ()
       ; Trigger
+      (defun *error* ( errorMessage ) (princ (strcat "n-------- ERROR: " errorMessage " --------n")) (vl-bt) (DT:ReportError))
+      (DT:AutoLoadFileFromCivilTemp "ErrorTracing.lsp")
       (DT:AutoLoadFileFromCivilTemp "${1:currentFile}.lsp")
       (c:${2:entryFunction})
 
@@ -259,6 +264,10 @@
     prefix:  'DT:GetLwpolyPoints'
     body:    '(DT:GetLwpolyPoints ${1:ename})'
     description:        'Return a list with the coordinates of every verted of passed entity name (ename)'
+  '(DT:SubList l ii fi)':
+    prefix:  'DT:SubList'
+    body:    '(DT:SubList ${1:l} ${2:ii} ${3:fi})'
+    description:        'Return a slice of l'
 
 
 # Lee Mac library
