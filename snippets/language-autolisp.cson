@@ -276,6 +276,11 @@
     body:   '(LM:EffectiveName ${1:blockObject})'
     description: 'Return passed object block name, if any.'
     descriptionMoreURL: 'http://www.lee-mac.com/effectivename.html'
+  '(LM:rtos real units prec)':
+    prefix: 'LM:rtos '
+    body:   '(LM:rtos ${1:real} ${2:units} ${3:precision})'
+    description: 'Converts a number into a string.'
+    descriptionMoreURL: 'http://www.lee-mac.com/consistentrtos.html'
 
   # List manipulation
   '(LM:SubstNth a n l)':
