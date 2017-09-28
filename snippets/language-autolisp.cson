@@ -252,6 +252,10 @@
     prefix:  'DT:DegToRad'
     body:    '(DT:DegToRad ${1:angle})'
     description: 'Return angle in radians'
+  '(DT:AngleToGradient angle)':
+    prefix:  'DT:AngleToGradient'
+    body:    '(DT:AngleToGradient ${1:degAngle})'
+    description: 'Convert the angle (deg) into a gradient (1:...)'
   '(DT:SortAlphanumeric list)':
     prefix:  'DT:SortAlphanumeric'
     body:    '(DT:SortAlphanumeric ${1:listToSort})'
