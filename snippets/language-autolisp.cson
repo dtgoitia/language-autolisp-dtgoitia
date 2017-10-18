@@ -232,6 +232,7 @@
       (defun *error* ( errorMessage ) (princ (strcat "n-------- ERROR: " errorMessage " --------n")) (vl-bt) (DT:ReportError))
       (DT:AutoLoadFileFromCivilTemp "ErrorTracing.lsp")
       (DT:AutoLoadFileFromCivilTemp "${1:currentFile}.lsp")
+      (princ (strcat "\nTemp file loaded (" (DT:Now) ")"))(princ)
       (c:${2:entryFunction})
 
       ; v0.0 - ${3:_DATE_} - First issue
