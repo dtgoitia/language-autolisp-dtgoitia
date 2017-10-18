@@ -272,6 +272,10 @@
     prefix:  'DT:SubList'
     body:    '(DT:SubList ${1:l} ${2:ii} ${3:fi})'
     description:        'Return a slice of l'
+  '(DT:Now)':
+    prefix:  'DT:Now'
+    body:    '(DT:Now)'
+    description:        'Returns a string with curent date and time as YYYY.MM.DD hh:mm:ss.ms'
 
 
 # Lee Mac library
