@@ -232,7 +232,7 @@
       (defun *error* ( errorMessage ) (princ (strcat "n-------- ERROR: " errorMessage " --------n")) (vl-bt) (DT:ReportError))
       (DT:AutoLoadFileFromCivilTemp "ErrorTracing.lsp")
       (DT:AutoLoadFileFromCivilTemp "${1:currentFile}.lsp")
-      (princ (strcat "\nTemp file loaded (" (DT:Now) ")"))(princ)
+      (princ (strcat \"\\\\nTemp file loaded (\" (DT:Now) \")\\\\n\"))(princ)
       (c:${2:entryFunction})
 
       ; v0.0 - ${3:_DATE_} - First issue
@@ -277,7 +277,14 @@
     prefix:  'DT:Now'
     body:    '(DT:Now)'
     description:        'Returns a string with curent date and time as YYYY.MM.DD hh:mm:ss.ms'
-
+  '(DT:GetRelativeAngle ang0 ang1)':
+    prefix:  'DT:GetRelativeAngle'
+    body:    '(DT:GetRelativeAngle ${1:ang0} ${2:ang1})'
+    description:        'Returns relative angle between passed angles. Clockwise (+), anticlockwise (-)'
+  '(DT:WriteFile content filePath)':
+    prefix:  'DT:WriteFile'
+    body:    '(DT:WriteFile ${1:contentString} ${2:filePathString})'
+    description: 'Writes the content to a filePath. Allows multiline strings (use "\\n")'
 
 # Lee Mac library
   '(LM:EffectiveName obj)':
